@@ -49,8 +49,8 @@ class Comment(Model):
 if __name__ == "__main__":
     
     async def test(loop):
-        await create_pool(loop, user='www-data', password='www-data', database='awesome', db='awesome')
-        u = User(name='Test', email='test@example.com', passwd='1234567890', image='about:blank')
+        await create_pool(loop=loop, host='localhost', port=3306, user='www-data', password='www-data', db='awesome')
+        u = User(name='Test1', email='test1@example.com', passwd='1234567890', image='about:blank')
         await u.save()
 
     # 获取EventLoop:
