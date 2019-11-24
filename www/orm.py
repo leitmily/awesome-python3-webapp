@@ -8,7 +8,10 @@ import aiomysql
 __pool = None
 
 def log(sql, args=()):
-    logging.info(sql.replace('?', '{}').format(*args))
+    if(args is None):
+        logging.info(sql)
+    else:
+        logging.info(sql.replace('?', '{}').format(*args))
 
 async def create_pool(loop, **kw):
     logging.info("create database connection pool...")
